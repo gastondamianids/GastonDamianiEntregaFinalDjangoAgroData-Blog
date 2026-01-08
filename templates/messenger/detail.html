@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>{{ msg.subject }}</h1>
+<p><strong>De:</strong> {{ msg.sender.username }}</p>
+<p><strong>Fecha:</strong> {{ msg.created_at }}</p>
+<hr>
+<p>{{ msg.body }}</p>
+<p><a href="/messenger/">Volver</a></p>
+{% endblock %}

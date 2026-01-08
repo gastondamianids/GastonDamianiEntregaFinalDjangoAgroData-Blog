@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Perfil</h1>
+
+<p><strong>Usuario:</strong> {{ user.username }}</p>
+<p><strong>Email:</strong> {{ user.email }}</p>
+
+{% if profile.avatar %}
+  <img src="{{ profile.avatar.url }}" style="max-width:200px;">
+{% endif %}
+
+<p><strong>Bio:</strong> {{ profile.bio }}</p>
+<p><strong>Nacimiento:</strong> {{ profile.birth_date }}</p>
+
+<p>
+  <a href="/accounts/profile/edit/">Editar perfil</a> |
+  <a href="/accounts/logout/">Logout</a>
+</p>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Borrar Page</h1>
+<p>¿Seguro que querés borrar: <strong>{{ object.title }}</strong>?</p>
+
+<form method="post">
+  {% csrf_token %}
+  <button type="submit">Sí, borrar</button>
+</form>
+
+<p><a href="/pages/">Cancelar</a></p>
+{% endblock %}

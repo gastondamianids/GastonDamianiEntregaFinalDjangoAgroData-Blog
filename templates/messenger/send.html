@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Enviar Mensaje</h1>
+
+{% if error %}
+  <p>{{ error }}</p>
+{% endif %}
+
+<form method="post">
+  {% csrf_token %}
+  <p><label>Usuario destino:</label><br><input name="receiver"></p>
+  <p><label>Asunto:</label><br><input name="subject"></p>
+  <p><label>Mensaje:</label><br><textarea name="body"></textarea></p>
+  <button type="submit">Enviar</button>
+</form>
+
+<p><a href="/messenger/">Volver</a></p>
+{% endblock %}

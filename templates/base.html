@@ -1,0 +1,19 @@
+<nav>
+  <a href="/">Home</a>
+  <a href="/about/">About</a>
+  <a href="/pages/">Pages</a>
+
+  {% if user.is_authenticated %}
+    <a href="/messenger/">Messages</a>
+    <a href="/accounts/profile/">Profile</a>
+    <a href="/accounts/logout/">Logout</a>
+  {% else %}
+    <a href="/accounts/login/">Login</a>
+    <a href="/accounts/signup/">Signup</a>
+  {% endif %}
+</nav>
+<hr>
+
+
+{% block content %}
+{% endblock %}

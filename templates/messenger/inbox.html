@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Mensajes</h1>
+
+<h2>Recibidos</h2>
+{% if recibidos %}
+  <ul>
+    {% for m in recibidos %}
+      <li>
+        {% if not m.read %}<strong>(Nuevo)</strong>{% endif %}
+        <a href="/messenger/{{ m.id }}/"><strong>{{ m.subject }}</strong></a>
+        de {{ m.sender.username }}
+        <br>{{ m.body }}
+	<a href="/messenger/{{ m.id }}/delete/">Borrar</a>
+      </li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <p>No hay mensajes recibidos.</p>
+{% endif %}
+
+<h2>Enviados</h2>
+{% if enviados %}
+  <ul>
+    {% for m in enviados %}
+      <li>
+        <strong>{{ m.subject }}</strong> a {{ m.receiver.username }}
+        <br>{{ m.body }}
+	<a href="/messenger/{{ m.id }}/delete/">Borrar</a>
+      </li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <p>No hay mensajes enviados.</p>
+{% endif %}
+
+<p><a href="/messenger/send/">Enviar mensaje</a></p>
+{% endblock %}
+

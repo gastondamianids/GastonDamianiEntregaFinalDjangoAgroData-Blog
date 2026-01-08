@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Pages</h1>
+
+{% if user.is_authenticated %}
+  <p><a href="/pages/create/">Crear nueva Page</a></p>
+{% endif %}
+
+<form method="get">
+  <input type="text" name="q" placeholder="Buscar por título" value="{{ q }}">
+  <button type="submit">Buscar</button>
+</form>
+
+{% if pages %}
+  <ul>
+    {% for p in pages %}
+      <li>
+        <strong>{{ p.title }}</strong> - {{ p.subtitle }}
+        <a href="/pages/{{ p.id }}/">Leer más</a>
+
+        {% if user.is_authenticated and p.author == user %}
+          <a href="/pages/{{ p.id }}/update/">Editar</a>
+          <a href="/pages/{{ p.id }}/delete/">Borrar</a>
+        {% endif %}
+
+      </li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <p>No hay páginas aún.</p>
+{% endif %}
+
+{% endblock %}
