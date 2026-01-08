@@ -56,5 +56,8 @@ Modelos
 
 \- `db.sqlite3` y `media/` están ignorados por `.gitignore`.
 
+Login:
+usuario: gastondamiani
+contrasena: gaston123
 
 
